@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:barter",
+  "pools": [
+	{
+	  "bonus_rolls": 0.0,
+	  "entries": [
+		{
+		  "type": "minecraft:item",
+		  "name": "minecraft:iron_nugget",
+		  "weight": 2
+		},
+		{
+		  "type": "minecraft:item",
+		  "name": "minecraft:crimson_roots",
+		  "weight": 3
+		},
+		{
+		  "type": "minecraft:item",
+		  "name": "minecraft:brown_mushroom",
+		  "weight": 5
+		},
+		{
+		  "type": "minecraft:item",
+		  "name": "minecraft:red_mushroom",
+		  "weight": 5
+		},
+		{
+		  "type": "minecraft:item",
+		  "name": "minecraft:string",
+		  "weight": 80
+		}
+	  ],
+	  "rolls": 1.0
+	}
+  ],
+  "random_sequence": "minecraft:gameplay/piglin_bartering"
+}
