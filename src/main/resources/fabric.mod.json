@@ -11,14 +11,14 @@
 	},
 	"license": "",
 	"icon": "assets/wich/icon.png",
-	"environment": "*",
+	"environment": "server",
 	"entrypoints": {
 		"main": [
 		  "fun.wich.BarterWithBabies"
 		]
 	},
 	"mixins": [
-		"wich.mixins.json"
+		"wich.babybartering.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.17.3",
