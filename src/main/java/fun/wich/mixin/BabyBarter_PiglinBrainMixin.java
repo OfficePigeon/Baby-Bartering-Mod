@@ -8,6 +8,7 @@ import net.minecraft.loot.LootTable;
 import net.minecraft.loot.context.LootContextParameters;
 import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.loot.context.LootWorldContext;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,18 +19,19 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Mixin(PiglinBrain.class)
 public abstract class BabyBarter_PiglinBrainMixin {
 	@Shadow private static void doBarter(PiglinEntity entity, List<ItemStack> items) { }
 	@Shadow private static boolean acceptsForBarter(ItemStack stack) { return false; }
-
 	@Unique private static List<ItemStack> GetBarteredItemForBabies(PiglinEntity entity) {
-		LootTable lootTable = entity.getEntityWorld().getServer().getReloadableRegistries().getLootTable(BarterWithBabies.BABY_PIGLIN_BARTERING_GAMEPLAY);
+		MinecraftServer server = entity.getEntityWorld().getServer();
+		if (server == null) return new ArrayList<>();
+		LootTable lootTable = server.getReloadableRegistries().getLootTable(BarterWithBabies.BABY_PIGLIN_BARTERING_GAMEPLAY);
 		return lootTable.generateLoot(new LootWorldContext.Builder((ServerWorld)entity.getEntityWorld()).add(LootContextParameters.THIS_ENTITY, entity).build(LootContextTypes.BARTER));
 	}
-
 	@Inject(method="consumeOffHandItem", at=@At("HEAD"), cancellable=true)
 	private static void Inject_consumeOffHandItem_AllowBabyPiglinBartering(ServerWorld world, PiglinEntity piglin, boolean barter, CallbackInfo ci) {
 		if (barter && piglin.isBaby() && acceptsForBarter(piglin.getStackInHand(Hand.OFF_HAND))) {

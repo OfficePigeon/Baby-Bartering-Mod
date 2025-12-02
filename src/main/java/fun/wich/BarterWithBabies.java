@@ -10,12 +10,7 @@ import net.minecraft.util.Identifier;
 
 public class BarterWithBabies implements ModInitializer {
 	public static final String MOD_ID = "wich";
-
-	public static final RegistryKey<LootTable> BABY_PIGLIN_BARTERING_GAMEPLAY = registerLootTable("gameplay/baby_piglin_bartering");
-	private static RegistryKey<LootTable> registerLootTable(String name) {
-		return BabyBarter_LootTablesMixin.registerLootTable(RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of(MOD_ID, name)));
-	}
-
+	public static final RegistryKey<LootTable> BABY_PIGLIN_BARTERING_GAMEPLAY = BabyBarter_LootTablesMixin.registerLootTable(RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of(MOD_ID, "gameplay/baby_piglin_bartering")));
 	@Override
 	public void onInitialize() { }
 }
