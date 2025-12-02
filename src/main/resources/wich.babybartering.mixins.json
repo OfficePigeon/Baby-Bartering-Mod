@@ -1,7 +1,7 @@
 {
   "required": true,
   "package": "fun.wich.mixin",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_17",
   "mixins": [
 	"BabyBarter_LootTablesMixin",
 	"BabyBarter_PiglinBrainMixin"
