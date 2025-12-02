@@ -30,7 +30,7 @@ public abstract class BabyBarter_PiglinBrainMixin {
 	private static List<ItemStack> GetBarteredItemForBabies(PiglinEntity entity) {
 		MinecraftServer server = entity.getEntityWorld().getServer();
 		if (server == null) return new ArrayList<>();
-		LootTable lootTable = server.getReloadableRegistries().getLootTable(BarterWithBabies.BABY_PIGLIN_BARTERING_GAMEPLAY);
+		LootTable lootTable = server.getLootManager().getLootTable(BarterWithBabies.BABY_PIGLIN_BARTERING_GAMEPLAY);
 		return lootTable.generateLoot((new LootContextParameterSet.Builder((ServerWorld)entity.getEntityWorld())).add(LootContextParameters.THIS_ENTITY, entity).build(LootContextTypes.BARTER));
 	}
 	@Inject(method="consumeOffHandItem", at=@At("HEAD"), cancellable=true)
