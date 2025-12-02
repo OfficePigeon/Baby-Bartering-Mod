@@ -3,8 +3,8 @@
   "package": "fun.wich.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-	"LootTablesMixin",
-	"PiglinBrainMixin"
+	"BabyBarter_LootTablesMixin",
+	"BabyBarter_PiglinBrainMixin"
   ],
   "injectors": {
 	"defaultRequire": 1

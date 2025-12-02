@@ -1,6 +1,6 @@
 package fun.wich;
 
-import fun.wich.mixin.LootTablesMixin;
+import fun.wich.mixin.BabyBarter_LootTablesMixin;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.loot.LootTable;
@@ -13,7 +13,7 @@ public class BarterWithBabies implements ModInitializer {
 
 	public static final RegistryKey<LootTable> BABY_PIGLIN_BARTERING_GAMEPLAY = registerLootTable("gameplay/baby_piglin_bartering");
 	private static RegistryKey<LootTable> registerLootTable(String name) {
-		return LootTablesMixin.registerLootTable(RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of(MOD_ID, name)));
+		return BabyBarter_LootTablesMixin.registerLootTable(RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of(MOD_ID, name)));
 	}
 
 	@Override

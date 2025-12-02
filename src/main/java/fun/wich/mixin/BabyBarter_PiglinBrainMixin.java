@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.List;
 
 @Mixin(PiglinBrain.class)
-public abstract class PiglinBrainMixin {
+public abstract class BabyBarter_PiglinBrainMixin {
 	@Shadow private static void doBarter(PiglinEntity entity, List<ItemStack> items) { }
 	@Shadow private static boolean acceptsForBarter(ItemStack stack) { return false; }
 
